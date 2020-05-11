@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 
+import Layout from './components/Layout/Layout';
+
 
 function App() {
   return (
     <div>
-    <h1>alalaal</h1>
+      <Layout>
+        <h1>Test</h1>
+      </Layout>
     </div>
   );
 }
