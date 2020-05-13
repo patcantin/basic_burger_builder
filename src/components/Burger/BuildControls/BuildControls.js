@@ -5,11 +5,11 @@ import BuildControl from './BuildControl/BuildControl';
 import classes from './BuildControls.module.scss'
 
 const controls = [
-  { label: 'Tomato', type: 'tomato' },
-  { label: 'Salad', type: 'salad' },
-  { label: 'Cheese', type: 'cheese' },
   { label: 'Meat', type: 'meat' },
-  { label: 'Bacon', type: 'bacon' }
+  { label: 'Cheese', type: 'cheese' },
+  { label: 'Bacon', type: 'bacon' },
+  { label: 'Salad', type: 'salad' },
+  { label: 'Tomato', type: 'tomato' }
 ];
 
 const buildControls = (props) => (
@@ -22,6 +22,7 @@ const buildControls = (props) => (
         substract={() => props.ingredientRemoved(ctrl.type)}
         disabled={props.disabled[ctrl.type]} />
     ))}
+    <p>Current price: {props.price.toFixed(2)} $</p>
   </div>
 );
 
