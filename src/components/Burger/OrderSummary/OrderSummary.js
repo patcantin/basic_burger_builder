@@ -21,6 +21,7 @@ console.log(ingredientSummary);
       <ul>
         {ingredientSummary}
       </ul>
+      <h3>Total: {props.price.toFixed(2)}$</h3>
       <p>Continue to checkout?</p>
       <Button btnType="Danger" clicked={props.cancel}>Cancel</Button>
       <Button btnType="Success" clicked={props.continue}>Buy</Button>
