@@ -7,8 +7,7 @@ import classes from './Toolbar.module.scss';
 
 const toolbar = (props) => (
   <header className={classes.Toolbar}>
-    <div>Menu</div>
-    <Logo />
+  <Logo />
     <nav>
       <NavigationItems />
     </nav>
