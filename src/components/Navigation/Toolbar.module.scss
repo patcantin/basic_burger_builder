@@ -21,5 +21,9 @@
   }
 }
 
-// Mobile first
+@media (max-width: 499px) {  //if width less than 500px
+  .DesktopOnly {
+    display: none;
+  }
+}
 
