@@ -1,0 +1,9 @@
+.DrawerToggle {
+  width: 30px;
+}
+
+@media (min-width: 499px) {
+  .DrawerToggle {
+    width: 0px;
+  }
+}
