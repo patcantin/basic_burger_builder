@@ -11,6 +11,10 @@
   box-sizing: border-box;
   transition: transform 0.3s ease-out;
 
+  .Logo {
+    height: 11%;
+  }
+
 }
 
 @media (min-width: 500px) { // if media width exceeds 500px
@@ -26,3 +30,5 @@
 .Close {
   transform: translateX(-100%);
 }
+
+
