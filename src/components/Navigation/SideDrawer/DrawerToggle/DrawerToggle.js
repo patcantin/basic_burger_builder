@@ -1,6 +1,6 @@
 import React from 'react';
 
-import burgerButton from '../../../../assets/images/toggle.png';
+import burgerButton from '../../../../assets/images/original.png';
 import classes from './DrawerToggle.module.scss';
 
 
