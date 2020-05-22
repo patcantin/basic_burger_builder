@@ -1,5 +1,6 @@
 import React from 'react';
 import BurgerIngredient from './BurgerIngredient/BurgerIngredient';
+import Box from '../../assets/images/box.jpeg';
 
 import classes from './Burger.module.scss';
 
@@ -27,6 +28,7 @@ const burger = (props) => {
       <BurgerIngredient type="bread-top"/>
       {transformedIngredients}
       <BurgerIngredient type="bread-bottom"/>
+      <img className={classes.Box} src={Box} alt="box"/>
     </div>
   );
 };
