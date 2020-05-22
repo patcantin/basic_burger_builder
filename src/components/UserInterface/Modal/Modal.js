@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Aux from '../../../hoc/Aux';
-import Backdrop from '../Backdrop/Backdrop';
+import Backdrop from '../Backdrops/ModalBackdrop';
 
 import classes from './Modal.module.scss';
 

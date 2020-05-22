@@ -5,7 +5,8 @@ import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 import Modal from '../../components/UserInterface/Modal/Modal';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
-
+import BottomDrawer from '../../components/Navigation/BottomDrawer/BottomDrawer';
+import BottomToggle from '../../components/Navigation/BottomDrawer/DrawerToggle/BottomToggle';
 
 
 const INGREDIENT_PRICES = {
@@ -31,7 +32,8 @@ class BurgerBuilder extends Component {
       },
       totalPrice: 4,
       purchasable: false,
-      purchasing: false
+      purchasing: false,
+      showBottomDrawer: false
     }
   }
 
@@ -95,6 +97,16 @@ class BurgerBuilder extends Component {
     alert('You continue');
   }
 
+  closeBottomDrawerHandler = () => {
+    this.setState( { showBottomDrawer: false } );
+  };
+
+  bottomDrawerToggleHandler = () => {
+    this.setState( ( prevState ) => {
+      return { showBottomDrawer: !prevState.showBottomDrawer };
+    });
+  }
+
 
   render() {
     const disabledInfo = {
@@ -113,14 +125,19 @@ class BurgerBuilder extends Component {
             continue={this.purchaseContinueHandler}
             price={this.state.totalPrice} />
         </Modal>
-        <Burger ingredients={this.state.ingredients}/>
-        <BuildControls
-          ingredientAdded={this.addIngredientHandler}
-          ingredientRemoved={this.removeIngredientHandler}
-          disabled={disabledInfo}
-          price={this.state.totalPrice}
-          purchasable={this.state.purchasable}
-          ordered={this.purchaseHandler} />
+        <Burger ingredients={this.state.ingredients} />
+        <BottomToggle drawerToggleClicked={this.bottomDrawerToggleHandler} />
+        <BottomDrawer
+          open={this.state.showBottomDrawer}
+          BottomDrawerClosed={this.closeBottomDrawerHandler}>
+          <BuildControls
+            ingredientAdded={this.addIngredientHandler}
+            ingredientRemoved={this.removeIngredientHandler}
+            disabled={disabledInfo}
+            price={this.state.totalPrice}
+            purchasable={this.state.purchasable}
+            ordered={this.purchaseHandler} />
+        </BottomDrawer>
       </Aux>
     );
   }

@@ -1,0 +1,21 @@
+.BottomDrawer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 200;
+  background-color: white;
+  padding: 10px 10px;
+  box-sizing: border-box;
+  transition: transform 0.3s ease-out;
+
+}
+
+
+.Open {
+  transform: translateY(20);
+}
+
+.Close {
+  transform: translateY(100%);
+}
