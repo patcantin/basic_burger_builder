@@ -20,7 +20,8 @@ const buildControls = (props) => (
         label={ctrl.label}
         added={() => props.ingredientAdded(ctrl.type)}
         substract={() => props.ingredientRemoved(ctrl.type)}
-        disabled={props.disabled[ctrl.type]} />
+        disabled={props.disabled[ctrl.type]}
+        full={props.maxReached} />
     ))}
     <p>Current price: {props.price.toFixed(2)} $</p>
     <button className={classes.OrderButton}

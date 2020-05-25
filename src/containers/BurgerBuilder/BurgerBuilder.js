@@ -33,7 +33,8 @@ class BurgerBuilder extends Component {
       totalPrice: 4,
       purchasable: false,
       purchasing: false,
-      showBottomDrawer: false
+      showBottomDrawer: false,
+      boxFull: false
     }
   }
 
@@ -45,8 +46,12 @@ class BurgerBuilder extends Component {
       .reduce((sum, el) => {
         return sum + el;    // return total of array items ex: 7 considering [0,3,1,2,1]
       }, 0);
-    this.setState({purchasable: sum > 0}) // set purcheasable to true or false
+    this.setState({
+    purchasable:  sum == 4,
+    boxFull: sum >= 4
+    }) // set purcheasable to true or false
   }
+
 
   addIngredientHandler = (type) => {
     const oldCount = this.state.ingredients[type];
@@ -85,6 +90,7 @@ class BurgerBuilder extends Component {
       this.updatePurchaseState(updatedIngredients);
   };
 
+
   purchaseHandler = () => {
     this.setState({purchasing: true});
   }
@@ -111,11 +117,11 @@ class BurgerBuilder extends Component {
   render() {
     const disabledInfo = {
       ...this.state.ingredients // immutable copy of this.state.ingredients object
-    };
+    }
     for (let key in disabledInfo) { // return true or false for each key in disabledInfo { salad: true, meat: false, ect...}
       disabledInfo[key] = disabledInfo[key] <= 0
     }
-    console.log(disabledInfo);
+
     return(
       <Aux>
         <Modal show={this.state.purchasing} modalClosed={this.cancelPurchaseHandler}>
@@ -134,6 +140,7 @@ class BurgerBuilder extends Component {
             ingredientAdded={this.addIngredientHandler}
             ingredientRemoved={this.removeIngredientHandler}
             disabled={disabledInfo}
+            maxReached={this.state.boxFull}
             price={this.state.totalPrice}
             purchasable={this.state.purchasable}
             ordered={this.purchaseHandler} />
