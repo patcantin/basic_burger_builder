@@ -24,11 +24,12 @@ const burger = (props) => {
   }
 
   return(
-    <div className={classes.Burger}>
-      <BurgerIngredient type="bread-top"/>
-      {transformedIngredients}
-      <BurgerIngredient type="bread-bottom"/>
+    <div className={classes.Box}>
       <img className={classes.Box} src={Box} alt="box"/>
+      <ul>
+        <li>{transformedIngredients}</li>
+      </ul>
+
     </div>
   );
 };
