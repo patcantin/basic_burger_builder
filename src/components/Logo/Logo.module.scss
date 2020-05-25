@@ -1,18 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+
 .Logo {
-  padding: 5px 3%;
-  height: 45px;
   position: fixed;
   top: 0;
   left: 0;
   z-index: -1;
-  img {
-    height: 45px;
+  .Text {
+    font-family: 'Monoton', cursive;
+    font-size: 30px;
+    margin: 5px 0 0 15px;
   }
 }
 
 @media (max-width: 500px) {
   .Logo {
-    img {
+    .Text {
       visibility: hidden;
     }
   }
