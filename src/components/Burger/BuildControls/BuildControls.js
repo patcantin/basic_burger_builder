@@ -5,11 +5,11 @@ import BuildControl from './BuildControl/BuildControl';
 import classes from './BuildControls.module.scss'
 
 const controls = [
-  { label: 'Amstel', type: 'amstel' },
-  { label: 'Cheese', type: 'cheese' },
-  { label: 'Bacon', type: 'bacon' },
-  { label: 'Salad', type: 'salad' },
-  { label: 'Tomato', type: 'tomato' }
+  { label: 'Cow', type: 'cow' },
+  { label: 'Helix', type: 'helix' },
+  { label: 'Loop', type: 'loop' },
+  { label: 'River', type: 'river' },
+  { label: 'Tiki', type: 'tiki' }
 ];
 
 const buildControls = (props) => (

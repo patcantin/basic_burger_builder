@@ -10,11 +10,11 @@ import BottomToggle from '../../components/Navigation/BottomDrawer/DrawerToggle/
 
 
 const INGREDIENT_PRICES = {
-  tomato: 0.25,
-  salad: 0.5,
-  cheese: 1,
-  bacon: 0.7,
-  amstel: 1.3
+  cow: 3.25,
+  helix: 4.00,
+  loop: 3.50,
+  river: 3.75,
+  tiki: 4.50
 };
 
 
@@ -24,13 +24,13 @@ class BurgerBuilder extends Component {
 
     this.state = {
       ingredients: {
-        tomato: 0,
-        salad: 0,
-        bacon: 0,
-        cheese: 0,
-        amstel: 0
+        cow: 0,
+        helix: 0,
+        loop: 0,
+        river: 0,
+        tiki: 0
       },
-      totalPrice: 4,
+      totalPrice: 0,
       purchasable: false,
       purchasing: false,
       showBottomDrawer: false,
