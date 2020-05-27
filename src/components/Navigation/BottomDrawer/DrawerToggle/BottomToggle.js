@@ -1,13 +1,25 @@
-import React from 'react';
+import React, { Component } from 'react';
+
+import Aux from '../../../../hoc/Aux';
 
 import classes from './BottomToggle.module.scss';
 
 
-const buttomToggle = (props) => (
-  <div className={classes.ButtomToggle}>
-    <button onClick={props.drawerToggleClicked}>Start !</button>
-  </div>
+class ButtomToggle extends Component {
+  render() {
+     let attachClasses = [classes.ButtomToggle, classes.Hide];
+      if (this.props.show) {
+      attachClasses = [classes.ButtomToggle, classes.Show];
+     }
+    return (
+      <Aux>
+        <div className={attachClasses.join(' ')}>
+          <button onClick={this.props.drawerToggleClicked}>Start !</button>
+        </div>
+      </Aux>
+    );
+  }
+}
 
-);
+export default ButtomToggle;
 
-export default buttomToggle;
