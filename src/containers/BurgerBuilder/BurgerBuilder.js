@@ -34,6 +34,7 @@ class BurgerBuilder extends Component {
       purchasable: false,
       purchasing: false,
       showBottomDrawer: false,
+      showHideStart: true,
       boxFull: false
     }
   }
@@ -105,13 +106,31 @@ class BurgerBuilder extends Component {
 
   closeBottomDrawerHandler = () => {
     this.setState( { showBottomDrawer: false } );
+    this.setState( ( prevState ) => {
+      return { showHideStart: !prevState.showHideStart };
+    });
+    console.log(this.state.showHideStart);
+
   };
 
   bottomDrawerToggleHandler = () => {
     this.setState( ( prevState ) => {
       return { showBottomDrawer: !prevState.showBottomDrawer };
     });
+    this.setState( ( prevState ) => {
+      return { showHideStart: !prevState.showHideStart };
+    });
+    console.log(this.state.showHideStart);
   }
+
+  showHideStartHandler = () => {
+    this.setState( ( prevState ) => {
+      return { showHideStart: !prevState.showHideStart };
+    });
+    console.log(this.state.showHideStart);
+  }
+
+
 
 
   render() {
@@ -132,7 +151,9 @@ class BurgerBuilder extends Component {
             price={this.state.totalPrice} />
         </Modal>
         <Burger ingredients={this.state.ingredients} />
-        <BottomToggle drawerToggleClicked={this.bottomDrawerToggleHandler} />
+        <BottomToggle
+            drawerToggleClicked={this.bottomDrawerToggleHandler}
+            show={this.state.showHideStart} />
         <BottomDrawer
           open={this.state.showBottomDrawer}
           BottomDrawerClosed={this.closeBottomDrawerHandler}>
