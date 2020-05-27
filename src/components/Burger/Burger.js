@@ -20,7 +20,7 @@ const burger = (props) => {
       console.log(transformedIngredients);
 
   if (transformedIngredients.length === 0) { // if transformedIngredients empty
-      transformedIngredients = <p>Fill me!</p>
+      transformedIngredients = <p></p>
   }
 
   return(

@@ -1,11 +1,15 @@
 import React from 'react';
 
-import burgerButton from '../../../../assets/images/original.png';
+import burgerButton from '../../../../assets/images/logo_can.png';
 import classes from './DrawerToggle.module.scss';
 
 
 const drawerToggle = (props) => (
-  <img className={classes.DrawerToggle} src={burgerButton} onClick={props.clicked} alt="Toggle"/>
+  <div className={classes.DrawerToggle} onClick={props.clicked}>
+      <img  src={burgerButton}  alt="Toggle"/>
+      <p className={classes.Text}>Sour Box</p>
+  </div>
+
 );
 
 export default drawerToggle;

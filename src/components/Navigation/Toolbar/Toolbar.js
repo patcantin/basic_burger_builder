@@ -8,10 +8,11 @@ import classes from './Toolbar.module.scss';
 
 const toolbar = (props) => (
   <header className={classes.Toolbar}>
-  <DrawerToggle clicked={props.drawerToggleClicked} />
+  <DrawerToggle clicked={props.drawerToggleClicked}>
     <div className={classes.Logo}>
       <Logo />
     </div>
+   </DrawerToggle>
     <nav className={classes.DesktopOnly}>
       <NavigationItems />
     </nav>
