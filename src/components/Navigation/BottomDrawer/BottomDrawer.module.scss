@@ -8,14 +8,24 @@
   padding: 10px 10px;
   box-sizing: border-box;
   transition: transform 0.3s ease-out;
-
+  border: 3px solid black;
 }
 
 
 .Open {
-  transform: translateY(20);
+  transform: translateY(0);
 }
 
 .Close {
   transform: translateY(100%);
 }
+
+
+
+
+
+
+
+
+
+

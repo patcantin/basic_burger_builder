@@ -1,12 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+
 .ButtomToggle {
   display: flex;
   justify-content: center;
-  margin: 10px;
+  margin-top: 150px;
 
   button{
+    width: 250px;
+    height: 250px;
+    font-family: 'Monoton', cursive;
+    font-size: 40px;
     background-color: white;
     color: black;
     cursor: pointer;
     padding: 10px;
+    border: 2px solid black;
+    border-radius: 50%;
   }
+
+  button:hover, button:active {
+    background-color: rgba(0,0,0,0.1);
+
+    color: #966909;
+}
 }

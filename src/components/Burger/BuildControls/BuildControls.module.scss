@@ -1,28 +1,37 @@
-.BuildControls {
-  width: 100%;
-  background-color: #CF8F2E;
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+
+.Build {
   display: flex;
-  flex-flow: column;
+  flex-direction: column;
+  text-align: center;
+}
+
+.BuildControls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
   box-shadow: 0 2px 1px #ccc;
   margin: auto;
   padding: 10px 0;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: rgba(0,0,0,0.1);
 }
 
 .OrderButton {
-    background-color: #DAD735;
     outline: none;
     cursor: pointer;
     border: 1px solid #966909;
-    color: #966909;
-    font-family: inherit;
+    color: black;
+    font-family: 'Monoton', cursive;
     font-size: 1.2em;
     padding: 10px 20px;
-    box-shadow: 2px 2px 2px #966909;
+
 }
 
 .OrderButton:hover, .OrderButton:active {
-    background-color: #A0DB41;
+    background-color: red;
     border: 1px solid #966909;
     color: #966909;
 }

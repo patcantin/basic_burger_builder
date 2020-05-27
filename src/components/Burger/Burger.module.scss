@@ -16,11 +16,11 @@
     height: 196px;
 
     ul {
-      top: 65px;
+      top: 175px;
       padding-left: 25px;
 
       li img {
-        height:170px;
+        height:70px;
       }
     }
   }
@@ -28,10 +28,11 @@
 
 @media (min-width: 500px) and (min-height: 401px) {
   .Box {
+    margin-top: 60px;
     width: 470px;
     height: 300px;
   ul {
-      top: 70px;
+      top: 190px;
       padding-left: 30px;
 
       li img {
@@ -40,5 +41,23 @@
     }
   }
 }
+
+@media (min-width: 800px) and (min-height: 401px) {
+  .Box {
+    margin-top: 100px;
+    width: 470px;
+    height: 300px;
+  ul {
+      top: 270px;
+      padding-left: 30px;
+
+      li img {
+        height:255px;
+      }
+    }
+  }
+}
+
+
 
 
