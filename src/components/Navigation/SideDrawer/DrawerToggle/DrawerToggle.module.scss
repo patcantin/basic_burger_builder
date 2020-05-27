@@ -1,10 +1,14 @@
-.DrawerToggle {
-  width: 50px;
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+
+.DrawerToggle{
+  display: flex;
+  font-family: 'Monoton', cursive;
   cursor: pointer;
+  img {
+    height: 35px;
+    width: 15px;
+    padding: 10px;
+  }
+
 }
 
-@media (min-width: 499px) {
-  .DrawerToggle {
-    width: 0px;
-  }
-}

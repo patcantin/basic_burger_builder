@@ -86,3 +86,27 @@
 .CardProduct .CardProductInfos {
   padding: 16px;
 }
+
+@media (max-width: 600px) {
+  .BuildControl {
+    margin: 2px;
+    padding: 2px;
+
+  button {
+    padding: 2px;
+    margin-bottom: 5px;
+    width: 50px;
+  }
+
+  .Label {
+    padding: 2px;
+    width: 50px;
+  }
+
+}
+  .CardProduct {
+    height: 70px;
+    width: 120px;
+
+  }
+}

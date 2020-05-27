@@ -1,4 +1,4 @@
-.NavigationItem {
+.NavigationItem{
   margin: 5px 0;
   box-sizing: border-box;
   display: block;
@@ -15,8 +15,6 @@
   }
 
  a:active, a.active {
-
-      border-bottom: 2px solid black;
       color: black;
     }
 
