@@ -8,7 +8,7 @@ import classes from './Modal.module.scss';
 class Modal extends Component {
    // component turned to a class component only to use componentDidUpdate and shouldComponentUpdate
   shouldComponentUpdate(nextProps, nextState) {
-    if (nextProps.show !== this.props.show) {
+    if (nextProps.show !== this.props.show || nextProps.children !== this.props.children) {
       return true;
     }
   }
