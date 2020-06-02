@@ -27,13 +27,7 @@ class BurgerBuilder extends Component {
     super(props);
 
     this.state = {
-      ingredients: {
-        cow: 0,
-        helix: 0,
-        loop: 0,
-        river: 0,
-        tiki: 0
-      },
+      ingredients: null,
       totalPrice: 0,
       purchasable: false,
       purchasing: false,
@@ -42,6 +36,13 @@ class BurgerBuilder extends Component {
       boxFull: false,
       loading: false
     }
+  }
+
+  componentDidMount () {
+    axios.get('https://sourbox-c58f1.firebaseio.com/ingredients')
+      .then(response => {
+        this.setState( { ingredients: response.data } );
+      });
   }
 
   updatePurchaseState (ingredients) {
@@ -168,7 +169,8 @@ class BurgerBuilder extends Component {
     for (let key in disabledInfo) { // return true or false for each key in disabledInfo { salad: true, meat: false, ect...}
       disabledInfo[key] = disabledInfo[key] <= 0
     }
-    let orderSummary = <OrderSummary
+    let orderSummary = null;
+    orderSummary = <OrderSummary
             ingredients={this.state.ingredients}
             cancel={this.cancelPurchaseHandler}
             continue={this.purchaseContinueHandler}
@@ -176,18 +178,18 @@ class BurgerBuilder extends Component {
     if (this.state.loading) {
       orderSummary = <Spinner />
     }
-    return(
-      <Aux>
-        <Modal show={this.state.purchasing} modalClosed={this.cancelPurchaseHandler}>
-          {orderSummary}
-        </Modal>
-        <Burger ingredients={this.state.ingredients} />
-        <BottomToggle
-            drawerToggleClicked={this.bottomDrawerToggleHandler}
-            show={this.state.showHideStart} />
-        <BottomDrawer
-          open={this.state.showBottomDrawer}
-          BottomDrawerClosed={this.closeBottomDrawerHandler}>
+    let burger = <Spinner />
+
+    if (this.state.ingredients) {
+      burger = (
+        <Aux>
+          <Burger ingredients={this.state.ingredients} />
+          <BottomToggle
+           drawerToggleClicked={this.bottomDrawerToggleHandler}
+           show={this.state.showHideStart} />
+          <BottomDrawer
+           open={this.state.showBottomDrawer}
+           BottomDrawerClosed={this.closeBottomDrawerHandler}>
           <BuildControls
             ingredientAdded={this.addIngredientHandler}
             ingredientRemoved={this.removeIngredientHandler}
@@ -196,7 +198,17 @@ class BurgerBuilder extends Component {
             price={this.state.totalPrice}
             purchasable={this.state.purchasable}
             ordered={this.purchaseHandler} />
-        </BottomDrawer>
+          </BottomDrawer>
+        </Aux>
+      );
+    }
+
+
+    return(
+      <Aux>
+        <Modal show={this.state.purchasing} modalClosed={this.cancelPurchaseHandler}>
+          {orderSummary}
+        </Modal>
       </Aux>
     );
   }
