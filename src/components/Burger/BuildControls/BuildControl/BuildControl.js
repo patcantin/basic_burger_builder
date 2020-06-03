@@ -6,7 +6,7 @@ const buildControl = (props) => (
   <div  className={classes.BuildControl}>
 
     <div className={classes.CardProduct}>
-      <img src={props.photo} />
+      <img src={props.photo} alt="can" />
       <div className={classes.CardProductInfos}>
       <div className={classes.Label}>{props.label}</div>
         <button

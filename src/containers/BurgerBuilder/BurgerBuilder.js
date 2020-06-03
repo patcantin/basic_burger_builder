@@ -34,14 +34,18 @@ class BurgerBuilder extends Component {
       showBottomDrawer: false,
       showHideStart: true,
       boxFull: false,
-      loading: false
+      loading: false,
+      error: false
     }
   }
 
   componentDidMount () {
-    axios.get('https://sourbox-c58f1.firebaseio.com/ingredients')
+    axios.get('https://sourbox-c58f1.firebaseio.com/ingredients.json')
       .then(response => {
         this.setState( { ingredients: response.data } );
+      })
+      .catch(error => {
+        this.setState({ error: true });
       });
   }
 
@@ -170,15 +174,10 @@ class BurgerBuilder extends Component {
       disabledInfo[key] = disabledInfo[key] <= 0
     }
     let orderSummary = null;
-    orderSummary = <OrderSummary
-            ingredients={this.state.ingredients}
-            cancel={this.cancelPurchaseHandler}
-            continue={this.purchaseContinueHandler}
-            price={this.state.totalPrice} />;
     if (this.state.loading) {
       orderSummary = <Spinner />
     }
-    let burger = <Spinner />
+    let burger = this.state.error ? <p>Products can't be loaded</p> : <Spinner />
 
     if (this.state.ingredients) {
       burger = (
@@ -201,14 +200,22 @@ class BurgerBuilder extends Component {
           </BottomDrawer>
         </Aux>
       );
+      orderSummary = <OrderSummary
+            ingredients={this.state.ingredients}
+            cancel={this.cancelPurchaseHandler}
+            continue={this.purchaseContinueHandler}
+            price={this.state.totalPrice} />;
     }
-
+    if (this.state.loading) {
+      orderSummary = <Spinner />
+    }
 
     return(
       <Aux>
         <Modal show={this.state.purchasing} modalClosed={this.cancelPurchaseHandler}>
           {orderSummary}
         </Modal>
+        {burger}
       </Aux>
     );
   }
