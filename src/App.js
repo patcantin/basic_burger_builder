@@ -11,7 +11,7 @@ class App extends Component {
     return (
         <div className="wrapper">
           <MetaTags>
-            <title>Page 1</title>
+            <title>SourBox</title>
             <meta name="description" content="Make your own beer selection by filling the box" />
             <meta property="og:title" content="Sour Box" />
             <meta property="og:image" content="../public/logo192.png" />
