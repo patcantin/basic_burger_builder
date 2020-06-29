@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MetaTags from 'react-meta-tags';
+import { Route, Switch } from 'react-router-dom';
 
 import Layout from './hoc/Layout/Layout';
 import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder';
@@ -18,9 +19,11 @@ class App extends Component {
             <meta property="og:image" content="../public/logo192.png" />
           </MetaTags>
           <Layout>
-            <BurgerBuilder />
-            <Checkout />
-            </Layout>
+            <Switch>
+              <Route path="/checkout" component={Checkout} />
+              <Route path="/" component={BurgerBuilder} />
+            </Switch>
+          </Layout>
         </div>
       )
   }
