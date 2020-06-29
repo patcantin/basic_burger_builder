@@ -7,17 +7,20 @@ import classes from './CheckoutSummary.module.scss';
 
 const checkoutSummary = (props) => {
   return (
-    <div className="classes.CheckoutSummary">
+    <div className={classes.CheckoutSummary}>
       <h1>We hope it tatse well</h1>
-      <div style={{width:'300px', height: '300px', margin: 'auto'}}>
+      <div style={{width:'100%', margin: 'auto'}}>
         <Burger ingredients={props.ingredients} />
       </div>
+      <div className={classes.ConfirmButton}>
       <Button
           btnType="Danger"
           clicked>Cancel</Button>
       <Button
           btnType="Succes"
           clicked>Continue</Button>
+      </div>
+
     </div>
   );
 
