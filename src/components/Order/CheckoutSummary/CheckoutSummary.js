@@ -8,7 +8,6 @@ import classes from './CheckoutSummary.module.scss';
 const checkoutSummary = (props) => {
   return (
     <div className={classes.CheckoutSummary}>
-      <h1>We hope it tatse well</h1>
       <div style={{width:'100%', margin: 'auto'}}>
         <Burger ingredients={props.ingredients} />
       </div>
@@ -20,6 +19,7 @@ const checkoutSummary = (props) => {
           btnType="Succes"
           clicked={props.checkoutContinued}>Continue</Button>
       </div>
+      <h1>We hope it tatse well</h1>
 
     </div>
   );
